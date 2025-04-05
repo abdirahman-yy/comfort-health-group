@@ -47,4 +47,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
+      - name: Print deployment URL
+        run: echo "Site deployed to ${{ steps.deployment.outputs.page_url }} - Please use this URL until DNS propagation completes" 
