@@ -6,20 +6,26 @@
   body {
     @apply bg-warm-white text-deep-blue;
   }
+  :root {
+    --deep-blue: #1e3a8a;
+    --caring-green: #10b981;
+    --warm-white: #f8f9fa;
+    --soft-peach: #ffe8d9;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-caring-green text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-caring-green/90 transition duration-300 ease-in-out;
+    @apply bg-caring-green hover:bg-caring-green/90 text-white font-semibold rounded-md shadow transition duration-300 inline-flex items-center justify-center;
   }
   .btn-secondary {
-    @apply bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-full shadow-md hover:bg-soft-blue/90 transition duration-300 ease-in-out;
+    @apply bg-deep-blue hover:bg-deep-blue/90 text-white font-semibold rounded-md shadow transition duration-300 inline-flex items-center justify-center;
   }
   .section-title {
-    @apply text-3xl font-bold text-deep-blue mb-6;
+    @apply text-2xl md:text-3xl font-bold text-deep-blue mb-6;
   }
   .card {
-    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 ease-in-out;
+    @apply rounded-lg shadow-md p-6 transition duration-300 hover:shadow-lg;
   }
 }
 
