@@ -12,7 +12,7 @@ Comfort Health Group specializes in Housing Stabilization Services (HSS), a Minn
 
 Our mission is to foster stability, empowerment, and overall well-being in communities. We believe that stable housing is the foundation for a better life and work tirelessly to ensure that every individual we serve finds not just a house, but a true home.
 
-## Website Features
+## Key Features
 
 - **Modern, responsive design** optimized for all device sizes
 - **Housing Stabilization Services information** with detailed explanations of our programs
@@ -27,6 +27,8 @@ Our mission is to foster stability, empowerment, and overall well-being in commu
 - React
 - TypeScript
 - Tailwind CSS
+- FormSubmit for serverless form handling
+- GitHub Pages for hosting
 
 ## Contact
 
