@@ -1,11 +1,18 @@
 import Link from "next/link"
 import Image from "next/image"
+import ContactForm from "@/components/contact-form"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Comfort Health Group | Housing Stabilization Services",
+  description: "Comfort Health Group provides housing stabilization services in Minnesota, helping individuals find and maintain stable housing."
+}
 
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <section className="text-center mb-16 md:mb-20 pt-6 md:pt-10">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-deep-blue mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-deep-blue mb-6 md:mb-8">
           Pioneering Housing Stability, Transforming Lives
         </h1>
         <p className="text-lg md:text-xl text-deep-blue/80 mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed">
@@ -17,26 +24,30 @@ export default function Home() {
         </Link>
       </section>
 
-      <section className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-16 md:mb-20">
-        <div className="order-2 md:order-1 px-2 md:px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-deep-blue mb-6">Our Commitment to You</h2>
-          <p className="text-base md:text-lg mb-8 leading-relaxed">
-            At Comfort Health Group, we understand that stable housing is the foundation for a better life. Our
-            dedicated team works tirelessly to ensure that every individual we serve finds not just a house, but a true
-            home.
-          </p>
-          <Link href="/about-services" className="btn-secondary inline-block px-6 py-3 text-base">
-            Learn More About Our Services
-          </Link>
-        </div>
-        <div className="relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg order-1 md:order-2">
-          <Image
-            src="/images/minnesota-image.jpeg"
-            alt="Minneapolis skyline and Mississippi River"
-            layout="fill"
-            objectFit="cover"
-            className="hover:scale-105 transition-transform duration-500"
-          />
+      <section className="mb-16 md:mb-20">
+        <div className="bg-white p-8 rounded-lg shadow-md">
+          <h2 className="text-2xl md:text-3xl font-bold text-deep-blue text-center mb-6">Our Mission</h2>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <p className="text-deep-blue/80 mb-4 leading-relaxed">
+                At Comfort Health Group, we're dedicated to helping individuals with disabilities secure and maintain
+                stable housing through Minnesota's Housing Stabilization Services program.
+              </p>
+              <p className="text-deep-blue/80 leading-relaxed">
+                Our team works directly with clients to navigate housing challenges, from finding suitable living
+                arrangements to developing the skills needed for long-term independence.
+              </p>
+            </div>
+            <div className="relative h-60 md:h-72 rounded-lg overflow-hidden">
+              <Image
+                src="/images/minnesota-image.jpeg"
+                alt="Minnesota cityscape"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -60,6 +71,10 @@ export default function Home() {
             </p>
           </div>
         </div>
+      </section>
+
+      <section id="contact" className="mb-16 md:mb-20 scroll-mt-40">
+        <ContactForm />
       </section>
 
       <section className="text-center mb-12 bg-white rounded-lg shadow-sm p-10 md:p-16">

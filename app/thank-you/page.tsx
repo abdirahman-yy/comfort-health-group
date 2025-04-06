@@ -1,4 +1,10 @@
 import Link from "next/link"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Thank You | Comfort Health Group",
+  description: "Thank you for your submission to Comfort Health Group."
+}
 
 export default function ThankYou() {
   return (
@@ -22,10 +28,10 @@ export default function ThankYou() {
         
         <div className="mb-8">
           <p className="text-xl mb-4">
-            Your referral has been submitted successfully.
+            Your submission has been received successfully.
           </p>
           <p className="text-lg text-gray-600">
-            Our team will review your information and contact you within 24-48 hours.
+            Our team will review your information and get back to you within 24-48 hours.
           </p>
         </div>
         
@@ -42,17 +48,41 @@ export default function ThankYou() {
             </li>
             <li className="flex items-start">
               <span className="flex-shrink-0 w-6 h-6 bg-caring-green text-white rounded-full flex items-center justify-center mr-2 mt-0.5">3</span>
-              <span>We'll begin the assessment and planning process</span>
+              <span>We'll provide the information or assistance you need</span>
             </li>
           </ol>
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/" className="btn-primary">
+          <Link 
+            href="/" 
+            className="py-3 px-6 bg-caring-green text-white font-medium rounded-md shadow-md hover:bg-caring-green/90 transition duration-300 flex items-center justify-center"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-5 w-5 mr-2" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7m-14 0l2 2m0 0l7-7 7 7" />
+            </svg>
             Return to Homepage
           </Link>
-          <Link href="/submit-referral" className="btn-secondary">
-            Submit Another Referral
+          <Link 
+            href="/about-services" 
+            className="py-3 px-6 bg-white text-deep-blue font-medium border-2 border-deep-blue rounded-md shadow-sm hover:bg-deep-blue/5 transition duration-300 flex items-center justify-center"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-5 w-5 mr-2" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Learn About Our Services
           </Link>
         </div>
         

@@ -35,7 +35,7 @@ export default function ClientLayout({
       </head>
       <body className={`${poppins.className} bg-warm-white text-deep-blue`}>
         <Header />
-        <main className="min-h-screen pt-16">{children}</main>
+        <main className="min-h-screen pt-24">{children}</main>
         <Footer />
       </body>
     </html>
