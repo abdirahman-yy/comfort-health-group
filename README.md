@@ -1,6 +1,75 @@
 # Comfort Health Group Website
 
-This is a responsive website for [Comfort Health Group](http://comforthealthgroup.org/), a leading provider of housing stabilization services in Minnesota focused on empowering individuals through stable housing solutions.
+Official website for Comfort Health Group, providing housing stabilization services and expert guidance to overcome housing challenges.
+
+## Live Website
+
+Visit the live website at: [comforthealthgroup.org](https://comforthealthgroup.org)
+
+## Development Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/abdirahman-yy/comfort-health-group.git
+   cd comfort-health-group
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## Building for Production
+
+```bash
+npm run build
+```
+
+## Deployment
+
+The website is automatically deployed to GitHub Pages when changes are pushed to the main branch, using GitHub Actions.
+
+### Manual Deployment
+
+1. Build the static site:
+   ```bash
+   npm run build
+   ```
+
+2. The output will be in the `out` directory, which can be deployed to any static hosting service.
+
+## DNS Configuration
+
+To configure your custom domain (comforthealthgroup.org) with GitHub Pages:
+
+1. Add the following A records to your domain's DNS settings:
+   ```
+   A @ 185.199.108.153
+   A @ 185.199.109.153
+   A @ 185.199.110.153
+   A @ 185.199.111.153
+   ```
+
+2. Add CNAME record for www subdomain:
+   ```
+   CNAME www abdirahman-yy.github.io
+   ```
+
+3. Enable HTTPS in GitHub Pages settings after DNS propagation is complete.
+
+## Technologies Used
+
+- Next.js 14+
+- React
+- TypeScript
+- Tailwind CSS
 
 ## Project Overview
 
@@ -14,21 +83,6 @@ I created this portfolio landing page for Comfort Health Group as part of my web
 - **Accessibility**: Ensured the site follows accessibility standards with semantic HTML and proper contrast
 - **Optimized Images**: Optimized all images for fast loading and good performance
 
-## Technologies Used
-
-- **Next.js 15**: Utilized for static site generation with excellent SEO capabilities
-- **React & TypeScript**: Built with type-safe components for better code quality
-- **Tailwind CSS**: Implemented for responsive and consistent styling
-- **Static Export**: Configured for simple deployment to any hosting platform
-
-## Deployment
-
-The site is statically generated and deployed to GitHub Pages. The build process involves:
-
-1. Creating static exports with Next.js
-2. Deploying the static files to the hosting platform
-3. Configuring DNS to point to comforthealthgroup.org
-
 ## Key Challenges & Solutions
 
 - **Anchor Link Navigation**: Fixed issues with anchor links by implementing scroll margin adjustments
@@ -36,10 +90,6 @@ The site is statically generated and deployed to GitHub Pages. The build process
 - **Form Submission**: Integrated FormSubmit for easy email processing without requiring a backend
 - **Responsive Design**: Created a design system that works across all device sizes
 - **Content Organization**: Structured the housing service information into easy-to-understand sections
-
-## Live Site
-
-Visit the live site at [comforthealthgroup.org](http://comforthealthgroup.org/).
 
 ## About Comfort Health Group
 
