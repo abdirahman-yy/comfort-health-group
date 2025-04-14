@@ -4,7 +4,7 @@ Official website for Comfort Health Group, providing housing stabilization servi
 
 ## Live Website
 
-Visit the live website at: [comforthealthgroup.org](https://comforthealthgroup.org)
+Visit the live website at: [comforthealthgroup.org](http://comforthealthgroup.org)
 
 ## Project Overview
 
