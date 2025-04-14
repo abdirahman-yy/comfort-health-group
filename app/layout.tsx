@@ -33,41 +33,13 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: [
-      {
-        url: '/images/comfort-health-group-logo.png',
-        sizes: '512x512',
-        type: 'image/png',
-      },
-      {
-        url: '/images/comfort-health-group-logo.png',
-        sizes: '384x384',
-        type: 'image/png',
-      },
-      {
-        url: '/images/comfort-health-group-logo.png',
-        sizes: '256x256',
-        type: 'image/png',
-      }
-    ],
-    apple: [
-      {
-        url: '/images/comfort-health-group-logo.png',
-        sizes: '512x512',
-        type: 'image/png',
-      }
-    ],
-    shortcut: [
-      {
-        url: '/images/comfort-health-group-logo.png',
-        sizes: '512x512',
-        type: 'image/png',
-      }
-    ],
+    icon: '/images/comfort-health-group-logo.png',
+    shortcut: '/images/comfort-health-group-logo.png',
+    apple: '/images/comfort-health-group-logo.png',
   },
   other: {
     'msapplication-TileColor': '#0F172A',
-    'msapplication-TileImage': '/images/comfort-health-group-logo.png',
+    'msapplication-TileImage': '/icon-192.png',
     'msapplication-config': 'none',
     'msapplication-square512x512logo': '/images/comfort-health-group-logo.png'
   },
