@@ -91,15 +91,15 @@ export default function Header() {
 
   return (
     <header className="fixed w-full bg-white shadow-sm z-10">
-      <div className="container mx-auto px-4 py-5">
+      <div className="container mx-auto px-3 py-2">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <Image
               src="/images/comfort-health-group-logo.png"
               alt="Comfort Health Group"
-              width={150}
-              height={45}
-              className="h-auto sm:w-[180px] md:w-[198px]"
+              width={130}
+              height={35}
+              className="h-auto sm:w-[140px] md:w-[160px]"
             />
           </Link>
           
@@ -110,32 +110,32 @@ export default function Header() {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5" />
             )}
           </button>
 
           {/* Desktop navigation */}
           <nav className="hidden md:block">
-            <ul className="flex space-x-6">
+            <ul className="flex space-x-3">
               <li>
                 <Link
                   href="/"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-base py-2"
+                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-xs py-1"
                 >
-                  <Home className="w-5 h-5 mr-2" />
+                  <Home className="w-3.5 h-3.5 mr-1" />
                   <span>Home</span>
                 </Link>
               </li>
               <li className="relative">
                 <button
                   onClick={toggleServicesDropdown}
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-base py-2"
+                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-xs py-1"
                 >
-                  <Users className="w-5 h-5 mr-2" />
+                  <Users className="w-3.5 h-3.5 mr-1" />
                   <span>About Us + Services</span>
-                  <ChevronDown className="w-4 h-4 ml-1" />
+                  <ChevronDown className="w-2.5 h-2.5 ml-0.5" />
                 </button>
                 {isServicesDropdownOpen && (
                   <div ref={dropdownRef} className="absolute top-full left-0 bg-white shadow-md rounded-md py-2 w-60">
@@ -170,31 +170,31 @@ export default function Header() {
               <li>
                 <Link
                   href="/hipaa-privacy"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-base py-2"
+                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-xs py-1"
                 >
-                  <FileText className="w-5 h-5 mr-2" />
+                  <FileText className="w-3.5 h-3.5 mr-1" />
                   <span>HIPAA & Privacy</span>
                 </Link>
               </li>
               <li>
                 <a
                   href="#contact"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-base py-2"
+                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-xs py-1"
                   onClick={(e) => {
                     e.preventDefault();
                     handleAnchorClick('contact');
                   }}
                 >
-                  <Phone className="w-5 h-5 mr-2" />
+                  <Phone className="w-3.5 h-3.5 mr-1" />
                   <span>Contact Us</span>
                 </a>
               </li>
               <li>
                 <Link
                   href="/submit-referral"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-base py-2"
+                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-xs py-1"
                 >
-                  <FileText className="w-5 h-5 mr-2" />
+                  <FileText className="w-3.5 h-3.5 mr-1" />
                   <span>Submit Referral</span>
                 </Link>
               </li>

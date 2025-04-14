@@ -29,10 +29,6 @@ export default function ClientLayout({
 
   return (
     <html lang="en">
-      <head>
-        <title>Comfort Health Group</title>
-        <meta name="description" content="Pioneering Housing Stability, Transforming Lives" />
-      </head>
       <body className={`${poppins.className} bg-warm-white text-deep-blue`}>
         <Header />
         <main className="min-h-screen pt-24">{children}</main>
