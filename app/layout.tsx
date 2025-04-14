@@ -36,23 +36,40 @@ export const metadata: Metadata = {
     icon: [
       {
         url: '/images/comfort-health-group-logo.png',
-        sizes: '32x32 48x48 96x96 256x256',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+      {
+        url: '/images/comfort-health-group-logo.png',
+        sizes: '384x384',
+        type: 'image/png',
+      },
+      {
+        url: '/images/comfort-health-group-logo.png',
+        sizes: '256x256',
         type: 'image/png',
       }
     ],
     apple: [
       {
         url: '/images/comfort-health-group-logo.png',
-        sizes: '180x180',
+        sizes: '512x512',
         type: 'image/png',
       }
     ],
-    shortcut: '/images/comfort-health-group-logo.png',
+    shortcut: [
+      {
+        url: '/images/comfort-health-group-logo.png',
+        sizes: '512x512',
+        type: 'image/png',
+      }
+    ],
   },
   other: {
     'msapplication-TileColor': '#0F172A',
     'msapplication-TileImage': '/images/comfort-health-group-logo.png',
-    'msapplication-config': 'none'
+    'msapplication-config': 'none',
+    'msapplication-square512x512logo': '/images/comfort-health-group-logo.png'
   },
 }
 
