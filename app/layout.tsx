@@ -33,7 +33,15 @@ export const metadata: Metadata = {
     icon: [
       {
         url: "/images/comfort-health-group-logo.png",
-        href: "/images/comfort-health-group-logo.png"
+        href: "/images/comfort-health-group-logo.png",
+        sizes: "192x192",
+        type: "image/png"
+      },
+      {
+        url: "/images/comfort-health-group-logo.png",
+        href: "/images/comfort-health-group-logo.png",
+        sizes: "512x512",
+        type: "image/png"
       }
     ],
     shortcut: "/images/comfort-health-group-logo.png",
@@ -49,8 +57,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/images/comfort-health-group-logo.png" />
-        <link rel="apple-touch-icon" href="/images/comfort-health-group-logo.png" />
+        <link rel="icon" href="/images/comfort-health-group-logo.png" sizes="192x192" type="image/png" />
+        <link rel="icon" href="/images/comfort-health-group-logo.png" sizes="512x512" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/comfort-health-group-logo.png" sizes="192x192" />
       </head>
       <body className={inter.className}>
         <Header />

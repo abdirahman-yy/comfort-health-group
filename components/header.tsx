@@ -104,9 +104,9 @@ export default function Header() {
             <Image
               src="/images/comfort-health-group-logo.png"
               alt="Comfort Health Group"
-              width={400}
-              height={112}
-              className="h-auto w-[250px] sm:w-[300px] md:w-[400px]"
+              width={160}
+              height={45}
+              className="h-auto sm:w-[170px] md:w-[190px]"
             />
           </Link>
           
