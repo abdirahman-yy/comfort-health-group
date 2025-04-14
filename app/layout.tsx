@@ -34,17 +34,27 @@ export const metadata: Metadata = {
     icon: [
       {
         url: '/images/comfort-health-group-logo.png',
-        sizes: '32x32',
+        sizes: '192x192',
       },
       {
         url: '/images/comfort-health-group-logo.png',
-        sizes: '16x16',
+        sizes: '128x128',
+      },
+      {
+        url: '/images/comfort-health-group-logo.png',
+        sizes: '96x96',
       }
     ],
     apple: [
       {
         url: '/images/comfort-health-group-logo.png',
-        sizes: '180x180',
+        sizes: '512x512',
+      }
+    ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/images/comfort-health-group-logo.png',
       }
     ],
     shortcut: '/images/comfort-health-group-logo.png',
