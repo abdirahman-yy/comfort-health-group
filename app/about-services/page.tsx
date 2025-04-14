@@ -33,10 +33,9 @@ export default function AboutServices() {
         </div>
       </section>
 
-      <div id="housing-stabilization" className="scroll-mt-96"></div>
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold text-deep-blue mb-6">Housing Stabilization Services</h2>
-        <div className="bg-white p-6 md:p-8 rounded-lg shadow-md mb-8">
+      <div id="housing-stabilization" className="scroll-mt-48">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold text-deep-blue mb-4">Housing Stabilization Services (HSS)</h2>
           <p className="text-lg mb-6 leading-relaxed">
             Housing Stabilization Services is a Minnesota Medical Assistance benefit program designed to help individuals with disabilities, including mental illness and substance use disorder, as well as seniors, in the process of finding and maintaining suitable housing.
           </p>
@@ -54,12 +53,11 @@ export default function AboutServices() {
             </ul>
           </div>
         </div>
-      </section>
+      </div>
 
-      <div id="housing-transition" className="scroll-mt-96"></div>
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold text-deep-blue mb-6">Housing Transition Services</h2>
-        <div className="bg-white p-6 md:p-8 rounded-lg shadow-md mb-8">
+      <div id="housing-transition" className="scroll-mt-48">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold text-deep-blue mb-4">Housing Transition Services</h2>
           <p className="text-lg mb-6 leading-relaxed">
             We assist clients in planning for, finding, and moving into homes in their communities. Our comprehensive transition services help individuals navigate the complex process of securing appropriate housing while providing essential support every step of the way.
           </p>
@@ -77,30 +75,38 @@ export default function AboutServices() {
             </ul>
           </div>
         </div>
-      </section>
+      </div>
 
-      <div id="housing-sustaining" className="scroll-mt-96"></div>
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold text-deep-blue mb-6">Housing Sustaining Services</h2>
-        <div className="bg-white p-6 md:p-8 rounded-lg shadow-md mb-8">
+      <div id="housing-sustaining" className="scroll-mt-48">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold text-deep-blue mb-4">Housing Sustaining Services</h2>
           <p className="text-lg mb-6 leading-relaxed">
             We support clients in maintaining their housing and building long-term stability. Our sustaining services focus on helping individuals develop the skills and resources needed to remain stably housed and thrive in their communities.
           </p>
-          <p className="text-lg mb-6 leading-relaxed">
-            Our experienced team works alongside you to address challenges that might threaten housing stability, build positive relationships with landlords and neighbors, and connect you with community resources that support your ongoing success and independence.
-          </p>
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-deep-blue mb-4">Who Qualifies?</h3>
-            <ul className="list-disc pl-6 space-y-2 text-gray-700">
-              <li>Recent housing transition clients</li>
-              <li>Individuals at risk of housing instability</li>
-              <li>People with changing support needs</li>
-              <li>Those who need assistance with landlord communication</li>
-              <li>Individuals learning independent living skills</li>
-            </ul>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-gray-50 p-5 rounded-lg">
+              <h3 className="font-semibold text-deep-blue mb-3">Key Services Include:</h3>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                <li>Housing stability planning and support</li>
+                <li>Assistance with lease compliance</li>
+                <li>Help with utility management</li>
+                <li>Connection to community resources</li>
+                <li>Ongoing case management</li>
+              </ul>
+            </div>
+            <div className="bg-gray-50 p-5 rounded-lg">
+              <h3 className="font-semibold text-deep-blue mb-3">Our Approach:</h3>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                <li>Regular check-ins and support</li>
+                <li>Skill-building workshops</li>
+                <li>Crisis intervention when needed</li>
+                <li>Advocacy with landlords and service providers</li>
+                <li>Long-term stability planning</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <section className="mb-16">
         <h2 className="text-3xl font-bold text-deep-blue mb-6">Our Core Services Include</h2>
@@ -140,13 +146,15 @@ export default function AboutServices() {
         </div>
       </section>
 
-      <section className="bg-soft-peach p-8 rounded-lg shadow-md text-center mb-10">
-        <h2 className="text-2xl font-bold text-deep-blue mb-6">Connect With Us</h2>
-        <p className="text-lg mb-6">Have questions about our housing stabilization services? We're here to help.</p>
-        <div className="flex justify-center">
-          <Link href="/submit-referral" className="btn-primary inline-block px-8 py-4 text-base">
-            Submit A Referral
-          </Link>
+      {/* Mission Statement */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-deep-blue mb-6">Our Mission</h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              At Comfort Health Group, we are dedicated to providing comprehensive housing support services that empower individuals to achieve and maintain stable housing. Our mission is to transform lives through accessible, person-centered care that addresses both housing needs and overall well-being.
+            </p>
+          </div>
         </div>
       </section>
     </div>

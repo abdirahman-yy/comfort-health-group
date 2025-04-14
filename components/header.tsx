@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
-import { Home, Users, FileText, Menu, X, ChevronDown, Phone } from "lucide-react"
+import { Users, FileText, Menu, X, ChevronDown, Phone } from "lucide-react"
 import { usePathname, useRouter } from "next/navigation"
 
 export default function Header() {
@@ -45,49 +45,54 @@ export default function Header() {
     };
   }, []);
 
-  // Handle anchor link navigation
-  const handleAnchorClick = (anchor: string) => {
-    setIsServicesDropdownOpen(false);
-    setIsServicesMobileOpen(false);
-    setIsMenuOpen(false);
-    
-    if ((pathname === '/about-services' && anchor.startsWith('housing-')) || 
-        (pathname === '/' && anchor === 'contact')) {
-      // If already on the page with the correct anchor, scroll to it immediately
-      scrollToAnchor(anchor);
-    } else if (anchor.startsWith('housing-')) {
-      // If it's a housing anchor, navigate to about-services page with the hash
-      router.push(`/about-services#${anchor}`);
-    } else if (anchor === 'contact') {
-      // If it's the contact anchor, navigate to home page with the hash
-      router.push(`/#${anchor}`);
-    }
-  };
-
-  // Function to scroll to an anchor with the correct offset
-  const scrollToAnchor = (anchor: string) => {
-    const element = document.getElementById(anchor);
-    if (element) {
-      setTimeout(() => {
-        window.scrollTo({
-          top: element.getBoundingClientRect().top + window.scrollY - 250,
-          behavior: 'smooth'
-        });
-      }, 10);
-    }
-  };
-
   // Check for hash on page load
   useEffect(() => {
-    // Handle hash in URL on initial load
-    if ((pathname === '/about-services' && window.location.hash) || 
-        (pathname === '/' && window.location.hash)) {
-      const hash = window.location.hash.substring(1);
+    const hash = window.location.hash
+    if (hash) {
+      // Add a small delay to ensure the page has loaded
       setTimeout(() => {
-        scrollToAnchor(hash);
-      }, 500); // Longer delay for initial page load
+        const element = document.getElementById(hash.slice(1))
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" })
+        }
+      }, 300)
     }
-  }, [pathname]);
+  }, [pathname])
+
+  // Handle anchor link navigation
+  const handleAnchorClick = (e: React.MouseEvent<HTMLElement>, href: string) => {
+    e.preventDefault()
+    const targetId = href.split("#")[1]
+    
+    // Close dropdowns
+    setIsServicesDropdownOpen(false)
+    setIsServicesMobileOpen(false)
+    setIsMenuOpen(false)
+    
+    // If we're on a different page, navigate first then scroll
+    if (window.location.pathname !== "/about-services") {
+      router.push(href)
+      // Add a listener for route changes
+      const handleRouteChange = () => {
+        // Remove the listener after it's used
+        window.removeEventListener("popstate", handleRouteChange)
+        // Scroll to the element after a short delay to ensure the page has loaded
+        setTimeout(() => {
+          const element = document.getElementById(targetId)
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" })
+          }
+        }, 300)
+      }
+      window.addEventListener("popstate", handleRouteChange)
+    } else {
+      // If we're already on the page, just scroll
+      const element = document.getElementById(targetId)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  }
 
   return (
     <header className="fixed w-full bg-white shadow-sm z-10">
@@ -97,9 +102,9 @@ export default function Header() {
             <Image
               src="/images/comfort-health-group-logo.png"
               alt="Comfort Health Group"
-              width={130}
-              height={35}
-              className="h-auto sm:w-[140px] md:w-[160px]"
+              width={160}
+              height={45}
+              className="h-auto sm:w-[170px] md:w-[190px]"
             />
           </Link>
           
@@ -118,84 +123,69 @@ export default function Header() {
 
           {/* Desktop navigation */}
           <nav className="hidden md:block">
-            <ul className="flex space-x-3">
-              <li>
-                <Link
-                  href="/"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-xs py-1"
-                >
-                  <Home className="w-3.5 h-3.5 mr-1" />
-                  <span>Home</span>
-                </Link>
-              </li>
+            <ul className="flex items-center space-x-8">
               <li className="relative">
                 <button
                   onClick={toggleServicesDropdown}
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-xs py-1"
+                  className="flex items-center text-base font-medium text-deep-blue hover:text-caring-green transition-colors"
                 >
-                  <Users className="w-3.5 h-3.5 mr-1" />
-                  <span>About Us + Services</span>
-                  <ChevronDown className="w-2.5 h-2.5 ml-0.5" />
+                  About Us + Services
+                  <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
-                {isServicesDropdownOpen && (
-                  <div ref={dropdownRef} className="absolute top-full left-0 bg-white shadow-md rounded-md py-2 w-60">
-                    <Link
-                      href="/about-services"
-                      className="block px-4 py-2 text-deep-blue hover:bg-gray-50 hover:text-caring-green"
-                      onClick={() => setIsServicesDropdownOpen(false)}
-                    >
-                      About Us & Impact
-                    </Link>
-                    <button
-                      className="block w-full text-left px-4 py-2 text-deep-blue hover:bg-gray-50 hover:text-caring-green"
-                      onClick={() => handleAnchorClick('housing-stabilization')}
-                    >
-                      Housing Stabilization Services
-                    </button>
-                    <button
-                      className="block w-full text-left px-4 py-2 text-deep-blue hover:bg-gray-50 hover:text-caring-green"
-                      onClick={() => handleAnchorClick('housing-transition')}
-                    >
-                      Housing Transition Services
-                    </button>
-                    <button
-                      className="block w-full text-left px-4 py-2 text-deep-blue hover:bg-gray-50 hover:text-caring-green"
-                      onClick={() => handleAnchorClick('housing-sustaining')}
-                    >
-                      Housing Sustaining Services
-                    </button>
-                  </div>
-                )}
+                <div 
+                  ref={dropdownRef}
+                  className={`absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 ${isServicesDropdownOpen ? 'block' : 'hidden'}`}
+                >
+                  <Link
+                    href="/about-services"
+                    className="block w-full text-left px-4 py-2 text-base hover:bg-gray-100 transition-colors"
+                    onClick={() => setIsServicesDropdownOpen(false)}
+                  >
+                    About Us & Impact
+                  </Link>
+                  <button
+                    onClick={(e) => handleAnchorClick(e, '/about-services#housing-stabilization')}
+                    className="block w-full text-left px-4 py-2 text-base hover:bg-gray-100 transition-colors"
+                  >
+                    Housing Stabilization Services (HSS)
+                  </button>
+                  <button
+                    onClick={(e) => handleAnchorClick(e, '/about-services#housing-transition')}
+                    className="block w-full text-left px-4 py-2 text-base hover:bg-gray-100 transition-colors"
+                  >
+                    Housing Transition Services
+                  </button>
+                  <button
+                    onClick={(e) => handleAnchorClick(e, '/about-services#housing-sustaining')}
+                    className="block w-full text-left px-4 py-2 text-base hover:bg-gray-100 transition-colors"
+                  >
+                    Housing Sustaining Services
+                  </button>
+                </div>
               </li>
               <li>
                 <Link
                   href="/hipaa-privacy"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-xs py-1"
+                  className="text-base font-medium text-deep-blue hover:text-caring-green transition-colors"
                 >
-                  <FileText className="w-3.5 h-3.5 mr-1" />
-                  <span>HIPAA & Privacy</span>
+                  HIPAA & Privacy
                 </Link>
               </li>
               <li>
                 <a
-                  href="#contact"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-xs py-1"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleAnchorClick('contact');
-                  }}
+                  href="/#contact"
+                  className="text-base font-medium text-deep-blue hover:text-caring-green transition-colors"
+                  onClick={(e) => handleAnchorClick(e, '/#contact')}
                 >
-                  <Phone className="w-3.5 h-3.5 mr-1" />
-                  <span>Contact Us</span>
+                  Contact Us
                 </a>
               </li>
               <li>
                 <Link
                   href="/submit-referral"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-xs py-1"
+                  className="text-base font-medium bg-caring-green text-white px-4 py-2 rounded hover:bg-caring-green/90 transition-colors"
                 >
-                  <FileText className="w-3.5 h-3.5 mr-1" />
-                  <span>Submit Referral</span>
+                  Submit Referral
                 </Link>
               </li>
             </ul>
@@ -207,32 +197,21 @@ export default function Header() {
           <nav className="md:hidden mt-6 pb-3">
             <ul className="flex flex-col space-y-4">
               <li>
-                <Link
-                  href="/"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-base py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Home className="w-5 h-5 mr-2" />
-                  <span>Home</span>
-                </Link>
-              </li>
-              <li>
                 <div className="relative">
                   <button
                     onClick={toggleServicesMobile}
-                    className="flex items-center w-full text-deep-blue hover:text-caring-green transition duration-300 text-base py-2"
+                    className="flex items-center w-full text-base font-medium text-deep-blue hover:text-caring-green transition-colors"
                   >
-                    <Users className="w-5 h-5 mr-2" />
-                    <span>About Us + Services</span>
+                    About Us + Services
                     <ChevronDown className={`w-4 h-4 ml-1 transition-transform ${isServicesMobileOpen ? 'rotate-180' : ''}`} />
                   </button>
                   
                   {isServicesMobileOpen && (
-                    <div ref={mobileDdRef} className="pl-7 mt-2 space-y-2">
+                    <div ref={mobileDdRef} className="pl-4 mt-2 space-y-2">
                       <Link
                         href="/about-services"
-                        className="block py-2 text-deep-blue hover:text-caring-green"
-                        onClick={() => {
+                        className="block w-full text-left py-2 text-base text-deep-blue hover:text-caring-green"
+                        onClick={(e) => {
                           setIsServicesMobileOpen(false);
                           setIsMenuOpen(false);
                         }}
@@ -240,20 +219,20 @@ export default function Header() {
                         About Us & Impact
                       </Link>
                       <button
-                        className="block w-full text-left py-2 text-deep-blue hover:text-caring-green"
-                        onClick={() => handleAnchorClick('housing-stabilization')}
+                        className="block w-full text-left py-2 text-base text-deep-blue hover:text-caring-green"
+                        onClick={(e) => handleAnchorClick(e, '/about-services#housing-stabilization')}
                       >
-                        Housing Stabilization Services
+                        Housing Stabilization Services (HSS)
                       </button>
                       <button
-                        className="block w-full text-left py-2 text-deep-blue hover:text-caring-green"
-                        onClick={() => handleAnchorClick('housing-transition')}
+                        className="block w-full text-left py-2 text-base text-deep-blue hover:text-caring-green"
+                        onClick={(e) => handleAnchorClick(e, '/about-services#housing-transition')}
                       >
                         Housing Transition Services
                       </button>
                       <button
-                        className="block w-full text-left py-2 text-deep-blue hover:text-caring-green"
-                        onClick={() => handleAnchorClick('housing-sustaining')}
+                        className="block w-full text-left py-2 text-base text-deep-blue hover:text-caring-green"
+                        onClick={(e) => handleAnchorClick(e, '/about-services#housing-sustaining')}
                       >
                         Housing Sustaining Services
                       </button>
@@ -264,34 +243,28 @@ export default function Header() {
               <li>
                 <Link
                   href="/hipaa-privacy"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-base py-2" 
+                  className="block text-base font-medium text-deep-blue hover:text-caring-green transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <FileText className="w-5 h-5 mr-2" />
-                  <span>HIPAA & Privacy</span>
+                  HIPAA & Privacy
                 </Link>
               </li>
               <li>
                 <a
-                  href="#contact"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-base py-2"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleAnchorClick('contact');
-                  }}
+                  href="/#contact"
+                  className="block text-base font-medium text-deep-blue hover:text-caring-green transition-colors"
+                  onClick={(e) => handleAnchorClick(e, '/#contact')}
                 >
-                  <Phone className="w-5 h-5 mr-2" />
-                  <span>Contact Us</span>
+                  Contact Us
                 </a>
               </li>
               <li>
                 <Link
                   href="/submit-referral"
-                  className="flex items-center text-deep-blue hover:text-caring-green transition duration-300 text-base py-2"
+                  className="block text-base font-medium bg-caring-green text-white px-4 py-2 rounded hover:bg-caring-green/90 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <FileText className="w-5 h-5 mr-2" />
-                  <span>Submit Referral</span>
+                  Submit Referral
                 </Link>
               </li>
             </ul>
@@ -301,4 +274,6 @@ export default function Header() {
     </header>
   )
 }
+
+
 

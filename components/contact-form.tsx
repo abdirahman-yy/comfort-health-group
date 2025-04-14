@@ -59,7 +59,7 @@ export default function ContactForm() {
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-md max-w-3xl mx-auto">
-      <h2 className="text-2xl md:text-3xl font-bold text-deep-blue mb-6 text-center">Connect With Us</h2>
+      <h2 className="text-2xl md:text-3xl font-bold text-deep-blue mb-6 text-center">Contact Us</h2>
       
       {isSubmitted ? (
         <div className="text-center py-10">

@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "HIPAA & Privacy Policy | Comfort Health Group",
+  title: "HIPAA Privacy & Policy Notice | Comfort Health Group",
   description: "Learn about Comfort Health Group's HIPAA compliance and privacy policies."
 }
 
@@ -59,7 +59,7 @@ export default function HipaaPrivacy() {
                   <li>Medical data (Minn. Stat. §13.384)</li>
                 </ul>
               </div>
-              
+
               <div className="bg-gray-50 p-5 rounded-lg shadow-sm">
                 <h3 className="font-semibold text-deep-blue mb-3">Federal Regulations</h3>
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
@@ -77,24 +77,6 @@ export default function HipaaPrivacy() {
             <p className="text-gray-700 leading-relaxed">
               At Comfort Health Group, we take the protection of your personal and health information seriously. We implement stringent safeguards, conduct regular privacy training for our staff, and consistently review our procedures to ensure compliance with all relevant federal and state laws and regulations.
             </p>
-          </section>
-
-          <section className="mt-8 pt-6 border-t border-gray-200">
-            <h2 className="text-xl font-semibold text-deep-blue mb-4">Contact Us</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="p-4 bg-gray-50 rounded-lg text-center">
-                <p className="font-medium text-deep-blue mb-1">Phone:</p>
-                <p className="text-deep-blue/80">651-363-6866</p>
-              </div>
-              <div className="p-4 bg-gray-50 rounded-lg text-center">
-                <p className="font-medium text-deep-blue mb-1">Email:</p>
-                <p className="text-deep-blue/80">info.chgllc@gmail.com</p>
-              </div>
-              <div className="p-4 bg-gray-50 rounded-lg text-center">
-                <p className="font-medium text-deep-blue mb-1">Address:</p>
-                <p className="text-deep-blue/80">6160 Summit Drive, Brooklyn Center, MN 55430</p>
-              </div>
-            </div>
           </section>
         </div>
       </div>
